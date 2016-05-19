@@ -9,6 +9,11 @@ response = client.describe_instance_health(
     LoadBalancerName='elb-test-1',
     )
 
+
+print "############################"
+print "######### All Instances ####"
+print "############################"
+
 for output in response['InstanceStates']:
 		instState = output['State']
 		instId = output['InstanceId']
@@ -23,6 +28,5 @@ for oos in response['InstanceStates']:
 			instState = oos['State']
 			instId = oos['InstanceId']
 			print("%s - %s" % (instId, instState))
-
 
 
